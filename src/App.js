@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Counter from "./Counter"; //dokud komponentu nenaimportuji, tak ji nemohu použít
+import Clock from "./Clock";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           Learn React
         </a>
         <Counter date="prdel" />
+        <Clock />
       </header>
     </div>
   );

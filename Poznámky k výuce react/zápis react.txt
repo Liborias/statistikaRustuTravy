@@ -1,0 +1,15 @@
+V reactu se používá kombinovaný zápis skládající se z nìèeho co vypadá jako html a má to tajné jméno JSX, ale nìkteré atributy uvnitø tagù mají odlišný zápis, protože by se to tlouklo s jinými klíèovými slovy
+napøíklad zápis class="nìco" je v reactu className="nìco"
+
+komponenta - ucelená èást aplikace, kterou si programujeme jako celek napø. v reactu, nebo javascriptu (tøeba nákupní košík, nìjaká rozbalovací nabídka atd.)
+state - je hodnota, která je obsažená uvnitø komponenty. Nìkolik vlastností komponety. Vlastnost se pojmenovává klíèem autor:  a pøiøazuje se k nìmu hodnota "Libor"
+ state = { count: 5, autor: "Libor" };
+
+
+props - je hodnota, která je pøidaná ke komponentì v ostrých závorkách, tam kde komponentu vkládám v tomto pøípadì v app.js takto <Counter date="prdel" />. Zde je klíèem date a hodnota "prdel".
+
+props i state mají rùzné typy:
+
+number - èíslo, zapisuje se jako èíslo napø. 5
+string - text, zapisuje sev uvozovkách "Libor"
+boolean - logická hodnota, zapisuje se true/false

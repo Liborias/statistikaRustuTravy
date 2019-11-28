@@ -1,0 +1,39 @@
+jQuery - zpùsob jak elegantnìjší a jednodušší zápis javaScriptu (nebudeme se uèit)
+
+Problém byl s rùznými verzemi. Proto se ho nebudeme uèit, kdyžtak se naimportuje skript, který jej obsahuje.
+Nyní se používá jen pro drobnosti viz lightbox, který jsme si do grimoaru importovali.
+
+React - má virtuální "shadow" DOM (document object model).
+
+v Reactu se vytváøí jednotlivé znovupoužitelné komponenty (rodièovské a dceøinné), tøeba tlaèítko.
+
+pøi práci na projektu je potøeba mít úèet na Github a vytvoøit si tam projekt (repozitáø)
+
+vytváøí se soubor .gitIgnore, ve kterém definuji, které složky a soubory se nemají verzovat napø. proto, že jsou vždy stejné, nebo pøíliš velké a každý si je stejnì musí instalovat sám (nehlídají se jejich zmìny!)
+
+pro práci s Reactem je tøeba si nainstalovat Node.js který do systému doinstaluje potøebné knihovny
+
+a pro synchronizaci projektu s Githubem nìjaký synchronizátor (verzovací systém), my jsme zvolili Gitkraken (ještì je možný náladový sourcetree)
+
+vytvoøení nového projektu:
+
+v editoru pøes terminál použijeme pøíkazy pro vytvoøení nového projektu, ty lze najít vygooglením (create react app)
+
+Spuštìní lokálního prostøedí (local host):
+
+pøes terminál v editoru nebo pøes pøíkazový øádek si najdu složku, kde mám package.json k danému projektu
+
+nalezení cesty v editoru odkud budu spouštìt projekt:
+nakliknu si v navigátorovém stromì složku ve které mám projekt nyní se bude pøíkaz který napíšu vztahovat k této složce (pomocí enter zobrazím cestu kam budu psát pøíkaz - pro ovìøení)
+
+pokud nemám ve složce ještì node_modules tak je nainstaluji pomocí pøíkazu: npm install
+
+prostøedí spustím pøíkazem: npm start
+
+
+
+vypnutí prostøedí v editoru, nebo pøíkazovém øádku: ctrl+c
+
+v projektu je jen jedno html je ve složce public a jmìnuje se logicky index.html
+uvnitø je klasická struktura html ale v tagu body je jen jeden div s id="root"
+ve složce src je pak index.js javascriptový soubor, který má jedinou funkci a to vložit do divu s id root Reactovou komponentu App (komponenty jsou vždy s velkým písmenem)
