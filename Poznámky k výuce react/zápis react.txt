@@ -3,7 +3,12 @@ napøíklad zápis class="nìco" je v reactu className="nìco"
 
 komponenta - ucelená èást aplikace, kterou si programujeme jako celek napø. v reactu, nebo javascriptu (tøeba nákupní košík, nìjaká rozbalovací nabídka atd.)
 state - je hodnota, která je obsaená uvnitø komponenty. Nìkolik vlastností komponety. Vlastnost se pojmenovává klíèem autor:  a pøiøazuje se k nìmu hodnota "Libor"
+
  state = { count: 5, autor: "Libor" };
+
+zmìna hodnoty state - v pùvodním state mám hodnotu napø. hodnoutu hour: 12, a chci ji zmìnit na 20, take zavolám funkci setState viz níe
+
+this.setState({ hour: 20 });
 
 
 props - je hodnota, která je pøidaná ke komponentì v ostrıch závorkách, tam kde komponentu vkládám v tomto pøípadì v app.js takto <Counter date="prdel" />. Zde je klíèem date a hodnota "prdel".
@@ -12,4 +17,77 @@ props i state mají rùzné typy:
 
 number - èíslo, zapisuje se jako èíslo napø. 5
 string - text, zapisuje sev uvozovkách "Libor"
-boolean - logická hodnota, zapisuje se true/false
+boolean - logická hodnota, zapisuje se true/false - boolean se dá pomocí vykøikníku negovat napø. !true = false
+
+namísto podmínky If (){} else {} se nìkdy pouívá zkratka tzv. ternární operátor (ternární znamená, e má tøi èásti)
+
+(pokud) ? co chci udìlat : jinak ;
+
+funkce render() {}
+zajišuje vykreslení komponenty na obrazovku a pokud v komponentì nastanou zmìny, tak se provádí opakovanì
+
+return ( <div> </div>) - vrací jen jeden prvek, proto nejèastìji div. Kulaté závorky jsou tam proto, e je prvek rozdìlen na více øádkù, jinak by tam bıt nemusely, kdyby byl zápis jen jeden dluhı øádek bez odøádkování, je to tedy jen kvùli pøehlednosti zápisu.
+************************************************************************
+Struktury:
+
+objekt - objekt je sloitìjší struktura, která v sobì obsahuje vìtší mnoství definovanıch hodnot. V našem pøípadì jsou prvky typu objekt state a props, ale objekt mùe bıt i nìco jiného, èemu definuji rùzné hodnoty. Objekt se zapisuje do sloenıch závorek viz state a props vıše tvoøí jej sloené závorky, název pøed rovnítkem jej pouze pojmenovává. Objekt mùe obshaovat další prvky, tøeba objekty, nebo pole, které mohou bıt i dále v sobì vnoøené témìø donekoneèna. U vnoøenıch objektù rovnítko nahrazuje dvojteèka.
+
+  kytara = {
+    strings: 6,
+    type: "Dregnout",
+    age: 15,
+    tuned: false,
+    owner: {
+	name: "Libor",
+	surname: "ák",
+	}
+  };
+
+pole - stejnì jako objekt obsahuje více hodnot, ale na rozdíl od objektu nejsou pojmenované a záleí na poøadí v jakém jsou zapsány, jako první se poèítá odshora dolù podle poøadí, pozor první øádek nemá index (poøadí) 1, ale 0.
+
+***************************************************
+funkce - vlastní funkce se musí nejdøíve definovat. prvky:
+
+název funkce - vdy s malım poèáteèním písmenem
+() kulaté závorky, které mohou a nemusí obsahovat jeden, nebo více parametrù. Paramerùm definuji jejich jména, oddìlují se èárkou. Parametry jsou striktnì podle poøadí.
+=> arrow function
+{} sloené závorky, které obsahují kód, co má funkce dìlat
+
+Zapisuje se takto:
+bez definovanıch vıchozích hodnot parametrù
+nazevNedefFunkce = (parametr1, parametr2) => {}
+
+s definovanou vıchozí hodnotou parametru2, kdy vím, e obèas hodnotu nepošlu, tak je nejlepší definovanı parametr umístit na poslední pozici
+nazevDefFunkce = (parametr1,parametr2 = false) => {}
+---------------------------------------------
+
+volání funkce - funkce se volá pøes název a kulaté závorky. V závorkách ji pøiøazuji jednotlivım parametrùm pøímo hodnoty, (parametry jsou v poøadí, jak byly definovány, pokud nìkterı vynechám, je undefined)
+Zapisuje se takto:
+
+nazevNedefFunkce (1) - v tomto pøípadì má parametr1 hodnotu 1 a parametr2 hodnotu undefined viz definování funkce vıše
+
+
+nazevDefFunkce (1) -  - v tomto pøípadì má parametr1 hodnotu 1 a parametr2 hodnotu false
+----------------------------------------------------------------------------------
+this. - takto zaèíná vdy volání funkce, kdy je definováná v souboru ve kterém je volána (napø. je definována pøed renderem)
+
+this.dayToNight()
+
+*******************************************************************
+definice konstanty
+
+
+const nazevKonstanty = hodnota;
+
+hodnota mùe bıt èíslo, string, boolean
+pokud je hodnota boolean mohu ji vykøikníkem negovat
+
+**********************************************************************
+Tlaèítko a volání funkce pøíkazem onClick
+
+pozor pøed volání funkce je nutno umístit () =>
+jinak se díky charakteristice jazyka volání funkce zacyklí a prohlíeè naèítání utne a zobrazí chybovou stránku
+
+<button onClick={() => this.dayToNight()}>Nech je den nocí</button>
+
+
