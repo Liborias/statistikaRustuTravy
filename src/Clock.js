@@ -7,7 +7,7 @@ class Clock extends React.Component {
     day: "po",
     isNight: false,
     days: ["pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle"]
-  };
+  }; /*toto je pole*/
 
   dayToNight = () => {
     const dayOrNight = this.state.isNight;

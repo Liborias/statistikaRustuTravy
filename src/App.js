@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 import Counter from "./Counter"; //dokud komponentu nenaimportuji, tak ji nemohu použít
 import Clock from "./Clock";
+import Pole from "./Pole";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
         </a>
         <Counter date="prdel" />
         <Clock />
+        <div>
+          <Pole />
+        </div>
       </header>
     </div>
   );

@@ -1,36 +1,36 @@
-V reactu se pouívá kombinovanı zápis skládající se z nìèeho co vypadá jako html a má to tajné jméno JSX, ale nìkteré atributy uvnitø tagù mají odlišnı zápis, protoe by se to tlouklo s jinımi klíèovımi slovy
-napøíklad zápis class="nìco" je v reactu className="nìco"
+ï»¿V reactu se pouÅ¾Ã­vÃ¡ kombinovanÃ½ zÃ¡pis sklÃ¡dajÃ­cÃ­ se z nÄ›Äeho co vypadÃ¡ jako html a mÃ¡ to tajnÃ© jmÃ©no JSX, ale nÄ›kterÃ© atributy uvnitÅ™ tagÅ¯ majÃ­ odliÅ¡nÃ½ zÃ¡pis, protoÅ¾e by se to tlouklo s jinÃ½mi klÃ­ÄovÃ½mi slovy
+napÅ™Ã­klad zÃ¡pis class="nÄ›co" je v reactu className="nÄ›co"
 
-komponenta - ucelená èást aplikace, kterou si programujeme jako celek napø. v reactu, nebo javascriptu (tøeba nákupní košík, nìjaká rozbalovací nabídka atd.)
-state - je hodnota, která je obsaená uvnitø komponenty. Nìkolik vlastností komponety. Vlastnost se pojmenovává klíèem autor:  a pøiøazuje se k nìmu hodnota "Libor"
+komponenta - ucelenÃ¡ ÄÃ¡st aplikace, kterou si programujeme jako celek napÅ™. v reactu, nebo javascriptu (tÅ™eba nÃ¡kupnÃ­ koÅ¡Ã­k, nÄ›jakÃ¡ rozbalovacÃ­ nabÃ­dka atd.)
+state - je hodnota, kterÃ¡ je obsaÅ¾enÃ¡ uvnitÅ™ komponenty. NÄ›kolik vlastnostÃ­ komponety. Vlastnost se pojmenovÃ¡vÃ¡ klÃ­Äem autor:  a pÅ™iÅ™azuje se k nÄ›mu hodnota "Libor"
 
  state = { count: 5, autor: "Libor" };
 
-zmìna hodnoty state - v pùvodním state mám hodnotu napø. hodnoutu hour: 12, a chci ji zmìnit na 20, take zavolám funkci setState viz níe
+zmÄ›na hodnoty state - v pÅ¯vodnÃ­m state mÃ¡m hodnotu napÅ™. hodnoutu hour: 12, a chci ji zmÄ›nit na 20, takÅ¾e zavolÃ¡m funkci setState viz nÃ­Å¾e
 
 this.setState({ hour: 20 });
 
 
-props - je hodnota, která je pøidaná ke komponentì v ostrıch závorkách, tam kde komponentu vkládám v tomto pøípadì v app.js takto <Counter date="prdel" />. Zde je klíèem date a hodnota "prdel".
+props - je hodnota, kterÃ¡ je pÅ™idanÃ¡ ke komponentÄ› v ostrÃ½ch zÃ¡vorkÃ¡ch, tam kde komponentu vklÃ¡dÃ¡m v tomto pÅ™Ã­padÄ› v app.js takto <Counter date="prdel" />. Zde je klÃ­Äem date a hodnota "prdel".
 
-props i state mají rùzné typy:
+props i state majÃ­ rÅ¯znÃ© typy:
 
-number - èíslo, zapisuje se jako èíslo napø. 5
-string - text, zapisuje sev uvozovkách "Libor"
-boolean - logická hodnota, zapisuje se true/false - boolean se dá pomocí vykøikníku negovat napø. !true = false
+number - ÄÃ­slo, zapisuje se jako ÄÃ­slo napÅ™. 5
+string - text, zapisuje sev uvozovkÃ¡ch "Libor"
+boolean - logickÃ¡ hodnota, zapisuje se true/false - boolean se dÃ¡ pomocÃ­ vykÅ™iknÃ­ku negovat napÅ™. !true = false
 
-namísto podmínky If (){} else {} se nìkdy pouívá zkratka tzv. ternární operátor (ternární znamená, e má tøi èásti)
+namÃ­sto podmÃ­nky If (){} else {} se nÄ›kdy pouÅ¾Ã­vÃ¡ zkratka tzv. ternÃ¡rnÃ­ operÃ¡tor (ternÃ¡rnÃ­ znamenÃ¡, Å¾e mÃ¡ tÅ™i ÄÃ¡sti)
 
-(pokud) ? co chci udìlat : jinak ;
+(pokud) ? co chci udÄ›lat : jinak ;
 
 funkce render() {}
-zajišuje vykreslení komponenty na obrazovku a pokud v komponentì nastanou zmìny, tak se provádí opakovanì
+zajiÅ¡Å¥uje vykreslenÃ­ komponenty na obrazovku a pokud v komponentÄ› nastanou zmÄ›ny, tak se provÃ¡dÃ­ opakovanÄ›
 
-return ( <div> </div>) - vrací jen jeden prvek, proto nejèastìji div. Kulaté závorky jsou tam proto, e je prvek rozdìlen na více øádkù, jinak by tam bıt nemusely, kdyby byl zápis jen jeden dluhı øádek bez odøádkování, je to tedy jen kvùli pøehlednosti zápisu.
+return ( <div> </div>) - vracÃ­ jen jeden prvek, proto nejÄastÄ›ji div. KulatÃ© zÃ¡vorky jsou tam proto, Å¾e je prvek rozdÄ›len na vÃ­ce Å™Ã¡dkÅ¯, jinak by tam bÃ½t nemusely, kdyby byl zÃ¡pis jen jeden dluhÃ½ Å™Ã¡dek bez odÅ™Ã¡dkovÃ¡nÃ­, je to tedy jen kvÅ¯li pÅ™ehlednosti zÃ¡pisu.
 ************************************************************************
 Struktury:
 
-objekt - objekt je sloitìjší struktura, která v sobì obsahuje vìtší mnoství definovanıch hodnot. V našem pøípadì jsou prvky typu objekt state a props, ale objekt mùe bıt i nìco jiného, èemu definuji rùzné hodnoty. Objekt se zapisuje do sloenıch závorek viz state a props vıše tvoøí jej sloené závorky, název pøed rovnítkem jej pouze pojmenovává. Objekt mùe obshaovat další prvky, tøeba objekty, nebo pole, které mohou bıt i dále v sobì vnoøené témìø donekoneèna. U vnoøenıch objektù rovnítko nahrazuje dvojteèka.
+objekt - objekt je sloÅ¾itÄ›jÅ¡Ã­ struktura, kterÃ¡ v sobÄ› obsahuje vÄ›tÅ¡Ã­ mnoÅ¾stvÃ­ definovanÃ½ch hodnot. V naÅ¡em pÅ™Ã­padÄ› jsou prvky typu objekt state a props, ale objekt mÅ¯Å¾e bÃ½t i nÄ›co jinÃ©ho, Äemu definuji rÅ¯znÃ© hodnoty. Objekt se zapisuje do sloÅ¾enÃ½ch zÃ¡vorek viz state a props vÃ½Å¡e tvoÅ™Ã­ jej sloÅ¾enÃ© zÃ¡vorky, nÃ¡zev pÅ™ed rovnÃ­tkem jej pouze pojmenovÃ¡vÃ¡. Objekt mÅ¯Å¾e obshaovat dalÅ¡Ã­ prvky, tÅ™eba objekty, nebo pole, kterÃ© mohou bÃ½t i dÃ¡le v sobÄ› vnoÅ™enÃ© tÃ©mÄ›Å™ donekoneÄna. U vnoÅ™enÃ½ch objektÅ¯ rovnÃ­tko nahrazuje dvojteÄka.
 
   kytara = {
     strings: 6,
@@ -39,39 +39,41 @@ objekt - objekt je sloitìjší struktura, která v sobì obsahuje vìtší mnoství de
     tuned: false,
     owner: {
 	name: "Libor",
-	surname: "ák",
+	surname: "Å½Ã¡k",
 	}
   };
 
-pole - stejnì jako objekt obsahuje více hodnot, ale na rozdíl od objektu nejsou pojmenované a záleí na poøadí v jakém jsou zapsány, jako první se poèítá odshora dolù podle poøadí, pozor první øádek nemá index (poøadí) 1, ale 0.
+pole - stejnÄ› jako objekt obsahuje vÃ­ce hodnot, ale na rozdÃ­l od objektu nejsou pojmenovanÃ© a zÃ¡leÅ¾Ã­ na poÅ™adÃ­ v jakÃ©m jsou zapsÃ¡ny, jako prvnÃ­ se poÄÃ­tÃ¡ odshora dolÅ¯ podle poÅ™adÃ­, pozor prvnÃ­ Å™Ã¡dek nemÃ¡ index (poÅ™adÃ­) 1, ale 0.
 
 ***************************************************
-funkce - vlastní funkce se musí nejdøíve definovat. prvky:
+funkce - vlastnÃ­ funkce se musÃ­ nejdÅ™Ã­ve definovat. prvky:
 
-název funkce - vdy s malım poèáteèním písmenem
-() kulaté závorky, které mohou a nemusí obsahovat jeden, nebo více parametrù. Paramerùm definuji jejich jména, oddìlují se èárkou. Parametry jsou striktnì podle poøadí.
+nÃ¡zev funkce - vÅ¾dy s malÃ½m poÄÃ¡teÄnÃ­m pÃ­smenem
+() kulatÃ© zÃ¡vorky, kterÃ© mohou a nemusÃ­ obsahovat jeden, nebo vÃ­ce parametrÅ¯. ParamerÅ¯m definuji jejich jmÃ©na, oddÄ›lujÃ­ se ÄÃ¡rkou. Parametry jsou striktnÄ› podle poÅ™adÃ­.
 => arrow function
-{} sloené závorky, které obsahují kód, co má funkce dìlat
+{} sloÅ¾enÃ© zÃ¡vorky, kterÃ© obsahujÃ­ kÃ³d, co mÃ¡ funkce dÄ›lat
 
 Zapisuje se takto:
-bez definovanıch vıchozích hodnot parametrù
+bez definovanÃ½ch vÃ½chozÃ­ch hodnot parametrÅ¯
 nazevNedefFunkce = (parametr1, parametr2) => {}
 
-s definovanou vıchozí hodnotou parametru2, kdy vím, e obèas hodnotu nepošlu, tak je nejlepší definovanı parametr umístit na poslední pozici
+s definovanou vÃ½chozÃ­ hodnotou parametru2, kdyÅ¾ vÃ­m, Å¾e obÄas hodnotu nepoÅ¡lu, tak je nejlepÅ¡Ã­ definovanÃ½ parametr umÃ­stit na poslednÃ­ pozici
 nazevDefFunkce = (parametr1,parametr2 = false) => {}
 ---------------------------------------------
 
-volání funkce - funkce se volá pøes název a kulaté závorky. V závorkách ji pøiøazuji jednotlivım parametrùm pøímo hodnoty, (parametry jsou v poøadí, jak byly definovány, pokud nìkterı vynechám, je undefined)
+volÃ¡nÃ­ funkce - funkce se volÃ¡ pÅ™es nÃ¡zev a kulatÃ© zÃ¡vorky. V zÃ¡vorkÃ¡ch jiÅ¾ pÅ™iÅ™azuji jednotlivÃ½m parametrÅ¯m pÅ™Ã­mo hodnoty, (parametry jsou v poÅ™adÃ­, jak byly definovÃ¡ny, pokud nÄ›kterÃ½ vynechÃ¡m, je undefined)
 Zapisuje se takto:
 
-nazevNedefFunkce (1) - v tomto pøípadì má parametr1 hodnotu 1 a parametr2 hodnotu undefined viz definování funkce vıše
+nazevNedefFunkce (1) - v tomto pÅ™Ã­padÄ› mÃ¡ parametr1 hodnotu 1 a parametr2 hodnotu undefined viz definovÃ¡nÃ­ funkce vÃ½Å¡e
 
 
-nazevDefFunkce (1) -  - v tomto pøípadì má parametr1 hodnotu 1 a parametr2 hodnotu false
+nazevDefFunkce (1) -  - v tomto pÅ™Ã­padÄ› mÃ¡ parametr1 hodnotu 1 a parametr2 hodnotu false
 ----------------------------------------------------------------------------------
-this. - takto zaèíná vdy volání funkce, kdy je definováná v souboru ve kterém je volána (napø. je definována pøed renderem)
+this. - takto zaÄÃ­nÃ¡ vÅ¾dy volÃ¡nÃ­ funkce, kdyÅ¾ je definovÃ¡nÃ¡ v souboru ve kterÃ©m je volÃ¡na (napÅ™. je definovÃ¡na pÅ™ed renderem)
 
 this.dayToNight()
+
+do kulatÃ½ch zÃ¡vorek vypÃ­Å¡u promÄ›nnou kterou volÃ¡m
 
 *******************************************************************
 definice konstanty
@@ -79,15 +81,62 @@ definice konstanty
 
 const nazevKonstanty = hodnota;
 
-hodnota mùe bıt èíslo, string, boolean
-pokud je hodnota boolean mohu ji vykøikníkem negovat
+hodnota mÅ¯Å¾e bÃ½t ÄÃ­slo, string, boolean
+pokud je hodnota boolean mohu ji vykÅ™iknÃ­kem negovat
 
 **********************************************************************
-Tlaèítko a volání funkce pøíkazem onClick
+TlaÄÃ­tko a volÃ¡nÃ­ funkce pÅ™Ã­kazem onClick
 
-pozor pøed volání funkce je nutno umístit () =>
-jinak se díky charakteristice jazyka volání funkce zacyklí a prohlíeè naèítání utne a zobrazí chybovou stránku
+pozor pÅ™ed volÃ¡nÃ­ funkce je nutno umÃ­stit () =>
+jinak se dÃ­ky charakteristice jazyka volÃ¡nÃ­ funkce zacyklÃ­ a prohlÃ­Å¾eÄ naÄÃ­tÃ¡nÃ­ utne a zobrazÃ­ chybovou strÃ¡nku
 
-<button onClick={() => this.dayToNight()}>Nech je den nocí</button>
+<button onClick={() => this.dayToNight()}>NechÅ¥ je den nocÃ­</button>
+
+*************************************************************************
+pole (array)
+
+velikost pole je poÄet poloÅ¾ek v poli, 
+poloÅ¾ky majÃ­ pÅ™iÅ™azen index podle poÅ™adÃ­. Pozor prvnÃ­ index je 0 (ne 1).
+zÃ¡pis (v tomto pÅ™Ã­padÄ› mÃ¡me pole pojmenovÃ¡no kosovo) hodnoty pole se zapisujÃ­ do hranatÃ½ch [a,b] zÃ¡vorek a jsou oddÄ›leny ÄÃ¡rkou
+const kosovo = [3, 5, 10, 5, 4]; 
+
+velikost pole zjitÃ­m tak Å¾e zadÃ¡m nÃ¡zev promÄ›nnÃ©.length
+
+kosovo.length
+
+napÅ™. kdyÅ¾ chci vypsat 
+console.log (kosovo.length)
+
+pozn.
+zÃ¡pis javascriptu v reactu se mezi tagy zapisuje pomocÃ­ sloÅ¾enÃ½ch zÃ¡vorek
+
+pÅ™Ã­klad vypsÃ¡nÃ­ indexu v poli:
+<p> {kosovo[3]} se nerovnÃ¡ {moravske[5]} </p>
+
+NormÃ¡lnÄ› by zÃ¡pis vypadal takto
+<p> {this.state.kosovo[3]} se nerovnÃ¡ {this.state.moravske[5]} </p>
+
+ale na zaÄÃ¡tku funkce jsme si pÅ™eddefinovali cestu k jednotlivÃ½m polÃ­m takto:
+const { kosovo, moravske, result } = this.state;
+tedy Å¾e se nachÃ¡zejÃ­ v objektu state zapsanÃ©m v tomto souboru (this.)
+-----------------------------------------------------
+pÅ™idÃ¡nÃ­ poloÅ¾ky do pole se dÄ›lÃ¡ pÅ™Ã­kazem push
+zÃ¡pis napÅ™.:
+this.state.moravske.push(addItem);
+
+vypsat vÅ¡echny poloÅ¾ky v poli je moÅ¾nÃ© pÅ™Ã­kazem join pokud mezi nÄ› chci nÄ›co vloÅ¾it, pouÅ¾iji string v kulatÃ½ch zÃ¡vorkÃ¡ch (dalo by se i ÄÃ­slo, ale je to zbyteÄnÃ©)
+this.setState({ result: moravske.join(", ") });
+
+kdyÅ¾ chci postupnÄ› vypsat vÅ¡echny poloÅ¾ky v poli, nebo poloÅ¾ky definovanÃ© nÄ›jakou podmÃ­nkou, puÅ¾Ã­vÃ¡ se pÅ™Ã­kaz forEach
+this.state.moravske.forEach(item => { console.log(item); });
+*****************************************************
+matematickÃ© funkce v javaskriptu
+rovnÃ¡ se == porovnÃ¡vÃ¡ hodnoty bez ohledu na typ (ÄÃ­slo i string)
+rovnÃ¡ se === porovnÃ¡vÃ¡ pouze stejne typy (string / string, ÄÃ­slo / ÄÃ­slo)
+nerovnÃ¡ se !== platÃ­ stejnÃ© pravidlo jako pro rovnÃ¡ se
+vÄ›tÅ¡Ã­, nebo rovno >=
+menÅ¡Ã­ nebo rovno <=
+negace !
+
 
 

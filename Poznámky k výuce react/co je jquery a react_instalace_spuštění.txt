@@ -1,39 +1,39 @@
-jQuery - zpùsob jak elegantnìjší a jednodušší zápis javaScriptu (nebudeme se uèit)
+ï»¿jQuery - zpÅ¯sob jak elegantnÄ›jÅ¡Ã­ a jednoduÅ¡Å¡Ã­ zÃ¡pis javaScriptu (nebudeme se uÄit)
 
-Problém byl s rùznımi verzemi. Proto se ho nebudeme uèit, kdytak se naimportuje skript, kterı jej obsahuje.
-Nyní se pouívá jen pro drobnosti viz lightbox, kterı jsme si do grimoaru importovali.
+ProblÃ©m byl s rÅ¯znÃ½mi verzemi. Proto se ho nebudeme uÄit, kdyÅ¾tak se naimportuje skript, kterÃ½ jej obsahuje.
+NynÃ­ se pouÅ¾Ã­vÃ¡ jen pro drobnosti viz lightbox, kterÃ½ jsme si do grimoaru importovali.
 
-React - má virtuální "shadow" DOM (document object model).
+React - mÃ¡ virtuÃ¡lnÃ­ "shadow" DOM (document object model).
 
-v Reactu se vytváøí jednotlivé znovupouitelné komponenty (rodièovské a dceøinné), tøeba tlaèítko.
+v Reactu se vytvÃ¡Å™Ã­ jednotlivÃ© znovupouÅ¾itelnÃ© komponenty (rodiÄovskÃ© a dceÅ™innÃ©), tÅ™eba tlaÄÃ­tko.
 
-pøi práci na projektu je potøeba mít úèet na Github a vytvoøit si tam projekt (repozitáø)
+pÅ™i prÃ¡ci na projektu je potÅ™eba mÃ­t ÃºÄet na Github a vytvoÅ™it si tam projekt (repozitÃ¡Å™)
 
-vytváøí se soubor .gitIgnore, ve kterém definuji, které sloky a soubory se nemají verzovat napø. proto, e jsou vdy stejné, nebo pøíliš velké a kadı si je stejnì musí instalovat sám (nehlídají se jejich zmìny!)
+vytvÃ¡Å™Ã­ se soubor .gitIgnore, ve kterÃ©m definuji, kterÃ© sloÅ¾ky a soubory se nemajÃ­ verzovat napÅ™. proto, Å¾e jsou vÅ¾dy stejnÃ©, nebo pÅ™Ã­liÅ¡ velkÃ© a kaÅ¾dÃ½ si je stejnÄ› musÃ­ instalovat sÃ¡m (nehlÃ­dajÃ­ se jejich zmÄ›ny!)
 
-pro práci s Reactem je tøeba si nainstalovat Node.js kterı do systému doinstaluje potøebné knihovny
+pro prÃ¡ci s Reactem je tÅ™eba si nainstalovat Node.js kterÃ½ do systÃ©mu doinstaluje potÅ™ebnÃ© knihovny
 
-a pro synchronizaci projektu s Githubem nìjakı synchronizátor (verzovací systém), my jsme zvolili Gitkraken (ještì je monı náladovı sourcetree)
+a pro synchronizaci projektu s Githubem nÄ›jakÃ½ synchronizÃ¡tor (verzovacÃ­ systÃ©m), my jsme zvolili Gitkraken (jeÅ¡tÄ› je moÅ¾nÃ½ nÃ¡ladovÃ½ sourcetree)
 
-vytvoøení nového projektu:
+vytvoÅ™enÃ­ novÃ©ho projektu:
 
-v editoru pøes terminál pouijeme pøíkazy pro vytvoøení nového projektu, ty lze najít vygooglením (create react app)
+v editoru pÅ™es terminÃ¡l pouÅ¾ijeme pÅ™Ã­kazy pro vytvoÅ™enÃ­ novÃ©ho projektu, ty lze najÃ­t vygooglenÃ­m (create react app)
 
-Spuštìní lokálního prostøedí (local host):
+SpuÅ¡tÄ›nÃ­ lokÃ¡lnÃ­ho prostÅ™edÃ­ (local host):
 
-pøes terminál v editoru nebo pøes pøíkazovı øádek si najdu sloku, kde mám package.json k danému projektu
+pÅ™es terminÃ¡l v editoru nebo pÅ™es pÅ™Ã­kazovÃ½ Å™Ã¡dek si najdu sloÅ¾ku, kde mÃ¡m package.json k danÃ©mu projektu
 
-nalezení cesty v editoru odkud budu spouštìt projekt:
-nakliknu si v navigátorovém stromì sloku ve které mám projekt nyní se bude pøíkaz kterı napíšu vztahovat k této sloce (pomocí enter zobrazím cestu kam budu psát pøíkaz - pro ovìøení)
+nalezenÃ­ cesty v editoru odkud budu spouÅ¡tÄ›t projekt:
+nakliknu si v navigÃ¡torovÃ©m stromÄ› sloÅ¾ku ve kterÃ© mÃ¡m projekt nynÃ­ se bude pÅ™Ã­kaz kterÃ½ napÃ­Å¡u vztahovat k tÃ©to sloÅ¾ce (pomocÃ­ enter zobrazÃ­m cestu kam budu psÃ¡t pÅ™Ã­kaz - pro ovÄ›Å™enÃ­)
 
-pokud nemám ve sloce ještì node_modules tak je nainstaluji pomocí pøíkazu: npm install
+pokud nemÃ¡m ve sloÅ¾ce jeÅ¡tÄ› node_modules tak je nainstaluji pomocÃ­ pÅ™Ã­kazu: npm install
 
-prostøedí spustím pøíkazem: npm start
+prostÅ™edÃ­ spustÃ­m pÅ™Ã­kazem: npm start
 
 
 
-vypnutí prostøedí v editoru, nebo pøíkazovém øádku: ctrl+c
+vypnutÃ­ prostÅ™edÃ­ v editoru, nebo pÅ™Ã­kazovÃ©m Å™Ã¡dku: ctrl+c
 
-v projektu je jen jedno html je ve sloce public a jmìnuje se logicky index.html
-uvnitø je klasická struktura html ale v tagu body je jen jeden div s id="root"
-ve sloce src je pak index.js javascriptovı soubor, kterı má jedinou funkci a to vloit do divu s id root Reactovou komponentu App (komponenty jsou vdy s velkım písmenem)
+v projektu je jen jedno html je ve sloÅ¾ce public a jmÄ›nuje se logicky index.html
+uvnitÅ™ je klasickÃ¡ struktura html ale v tagu body je jen jeden div s id="root"
+ve sloÅ¾ce src je pak index.js javascriptovÃ½ soubor, kterÃ½ mÃ¡ jedinou funkci a to vloÅ¾it do divu s id root Reactovou komponentu App (komponenty jsou vÅ¾dy s velkÃ½m pÃ­smenem)
