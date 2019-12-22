@@ -1,0 +1,43 @@
+
+Trocha teorie: 
+Když definuješ proměnnou, doposud jsme to psali jako  - const nazev = hodnota;  
+Tato nově vytvořená proměnná nese nějakou hodnotu ale nelze ji měnit. Je to to totiž konstanta. Pokud chceš proměnnou, jejíž hodnota se může měnit, místo CONST se používá LET. 
+konstanta:        const nazevPromenne = hodnota;
+zápisem:            let nazevPromenne = hodnota; 
+změna hodnoty           nazevPromenne = novaHodnota;
+
+
+Ukol pole (array)
+
+Několik úkolů na procvičení datové struktury pole.
+1. Napiš funkci, která zjití největší hodnotu z pole čísel.
+2. Napiš fci, která zjití, zda dané pole obsahuje hodnotu 5.
+3. Uprav fci z č.2 aby i hledaná hodnota byla jedním z parametrů funkce. (Jedním paremetrem je pole, druhým hledaná hodnota).
+4. Napiš fci, která určí součet všech hodnot z pole.
+
+
+Happy coding!
+J.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+HINT:
+1. Vytvoř proměnnou (! proměnná nesmí být const ale let - let max = maruska[0]), do které vložíš první hodnotu z pole. Následně pomocí forEach projdi celé pole a pro každou hodnotu z pole prováděj kontrolu IF. Jestliže je hodnot větší než ta uložená v proměnné max, tak max přepíšeš.
+4. proměnná let SOUČET s počáteční hodnotou 0. Projdeš celé pole a každou hodnotu připočítáš do proměnné SOUČET.
+
+
