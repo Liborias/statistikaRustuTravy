@@ -15,6 +15,20 @@ Několik úkolů na procvičení datové struktury pole.
 3. Uprav fci z č.2 aby i hledaná hodnota byla jedním z parametrů funkce. (Jedním paremetrem je pole, druhým hledaná hodnota).
 4. Napiš fci, která určí součet všech hodnot z pole.
 
+Ukol To Do List
+
+přidat úkol
+označit hotový
+zadat prioritu 1, 2, nebo 3
+smazat úkol
+
+možné rozšíření:
+- změna pořadí
+- změna priority
+- znovu otevřít
+- zadání data
+- hlídač termínu
+- smazat až po dotazu a potvrzení
 
 Happy coding!
 J.

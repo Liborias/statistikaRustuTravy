@@ -129,6 +129,11 @@ this.setState({ result: moravske.join(", ") });
 
 když chci postupně vypsat všechny položky v poli, nebo položky definované nějakou podmínkou, pužívá se příkaz forEach
 this.state.moravske.forEach(item => { console.log(item); });
+(používá se ve chvíli, kdy nechci vypsat jednotlivé položky, ale chci s nimi jen nějak pracovat
+
+když chci postupně vypsat všechny položky v poli, používá se příkaz map, který vypíše každou jednu položku a to mohu v rámci funkce nadále pracovat, třeba k ní něco přičíst, přidat apod.
+this.state.moravske.map(item => { console.log(item); });
+
 *****************************************************
 matematické funkce v javaskriptu
 rovná se == porovnává hodnoty bez ohledu na typ (číslo i string)
