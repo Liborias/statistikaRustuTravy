@@ -55,3 +55,11 @@ HINT:
 4. proměnná let SOUČET s počáteční hodnotou 0. Projdeš celé pole a každou hodnotu připočítáš do proměnné SOUČET.
 
 
+úkol 23.1.2020
+
+Domácí úkol 
+- dej todolistu hezkou podobu v css
+- dva inputy např. Jméno a příjmení a na kliknutí tlačítka se vypíší vedle sebe
+
+
+

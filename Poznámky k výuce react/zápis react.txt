@@ -122,7 +122,7 @@ tedy že se nacházejí v objektu state zapsaném v tomto souboru (this.)
 -----------------------------------------------------
 přidání položky do pole se dělá příkazem push
 zápis např.:
-this.state.moravske.push(addItem);
+const rozsireneMoravske = this.state.moravske.push(addItem);
 
 vypsat všechny položky v poli je možné příkazem join pokud mezi ně chci něco vložit, použiji string v kulatých závorkách (dalo by se i číslo, ale je to zbytečné)
 this.setState({ result: moravske.join(", ") });
@@ -136,12 +136,40 @@ this.state.moravske.map(item => { console.log(item); });
 
 *****************************************************
 matematické funkce v javaskriptu
+rovná se = je přiřazení hodnoty do proměnné
 rovná se == porovnává hodnoty bez ohledu na typ (číslo i string)
 rovná se === porovnává pouze stejne typy (string / string, číslo / číslo)
 nerovná se !== platí stejné pravidlo jako pro rovná se
 větší, nebo rovno >=
 menší nebo rovno <=
 negace !
+¨
+*******************************************************************
+ukončení operace:
 
+return; - pokud chci ukončit nějaký výpočet, nebo operaci, napíši za ní return
 
+***************************************************************
+switch (přepínač)
+break - přerušení operace u switche, pokud tam není tak výpočet pokračuje na další řádek, dokud nenajde break. To znamená, že pokud nalezne hledanou proměnnou, tak vykoná pro ni určené příkazy, ale zároveň vykoná i příkazy na dalších řádcích bez ohledu na to, že case definuje jinou hodnotu proměnné a dělá to tak dlouho dokud nenarazí na break. Proto se break dává do složených závorek na konec souborů příkazů na každém řádku a to včetně defaultu.
+
+case - je příkaz, který říká, co se má stát v případě že je to tato hodnota 
+default - je příkaz, který říká, co se má stát v případě že to nebyla ani jedna z uvedených hodnot
+
+zápis je 
+switch (proměnná) {
+case hodnotaProměnné1: {co se má stát, když je to tato hodnota; co dalšího se má stát; break;} //doporučuje se serii příkazů ukončit "break;"
+case hodnotaProměnné2: {co se má stát, když je to tato hodnota; co dalšího se má stát; break;}
+case hodnotaProměnné3: {co se má stát, když je to tato hodnota; co dalšího se má stát; break;}
+default : {co se má stát, když to není ani jedna z vyjmenovaných hodnot;} //
+}
+
+Absence  break v každém řádku se využívá v případech, kdy chci operace provést pro více různých proměnných. 
+zápis je 
+switch (proměnná) {
+case hodnotaProměnné1: 
+case hodnotaProměnné2: 
+case hodnotaProměnné3: {co se má stát, když je to tato a přdchozí hodnoty; co dalšího se má stát; break;}
+default : {co se má stát, když to není ani jedna z vyjmenovaných hodnot;} //
+}
 
