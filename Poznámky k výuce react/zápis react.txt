@@ -123,16 +123,28 @@ tedy že se nacházejí v objektu state zapsaném v tomto souboru (this.)
 přidání položky do pole se dělá příkazem push
 zápis např.:
 const rozsireneMoravske = this.state.moravske.push(addItem);
+this.state.moravske.setState
+
 
 vypsat všechny položky v poli je možné příkazem join pokud mezi ně chci něco vložit, použiji string v kulatých závorkách (dalo by se i číslo, ale je to zbytečné)
 this.setState({ result: moravske.join(", ") });
 
+tyto funkce se vztahují pouze na pole:
+
+funkce forEach
 když chci postupně vypsat všechny položky v poli, nebo položky definované nějakou podmínkou, pužívá se příkaz forEach
 this.state.moravske.forEach(item => { console.log(item); });
 (používá se ve chvíli, kdy nechci vypsat jednotlivé položky, ale chci s nimi jen nějak pracovat
 
+funkce map
 když chci postupně vypsat všechny položky v poli, používá se příkaz map, který vypíše každou jednu položku a to mohu v rámci funkce nadále pracovat, třeba k ní něco přičíst, přidat apod.
 this.state.moravske.map(item => { console.log(item); });
+
+funkce filter
+na úplně stejném principu jako map funguje funkce filter, jen nevrátí všechny položky jako map, ale jen ty, které odpovídají zadanému parametru
+
+funkce find
+na úplně stejném principu jako map a filter funguje funkce find, ale na rozdíl od nich vrací první objekt, který odpovídá zadanému parametru
 
 *****************************************************
 matematické funkce v javaskriptu
@@ -172,4 +184,8 @@ case hodnotaProměnné2:
 case hodnotaProměnné3: {co se má stát, když je to tato a přdchozí hodnoty; co dalšího se má stát; break;}
 default : {co se má stát, když to není ani jedna z vyjmenovaných hodnot;} //
 }
+***************************************************************************
+typy vstupů
+
+input type="checkbox"
 
