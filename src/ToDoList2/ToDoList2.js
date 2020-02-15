@@ -38,9 +38,21 @@ class ToDoList2 extends React.Component {
         className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
         key={x.id}
       >
-        {x.priority} {x.taskName}
-        {!x.isDone && <button onClick={() => this.setDone(x.id)}>Done</button>}
-        <button onClick={() => this.remove(x.id)}>Delete</button>
+        <div className="taskRow">
+          <span>
+            {x.priority} {x.taskName}
+          </span>
+          <span>
+            {!x.isDone && (
+              <button className="donButton" onClick={() => this.setDone(x.id)}>
+                Done
+              </button>
+            )}
+            <button className="delButton" onClick={() => this.remove(x.id)}>
+              Delete
+            </button>
+          </span>
+        </div>
       </div>
     ));
     return vysledneDivy;
@@ -84,11 +96,15 @@ class ToDoList2 extends React.Component {
         <h2>To Do List 2</h2>
         <div className="tasksFrame">
           <input
+            className="textField"
             type="text"
             onChange={e => this.setState({ inputValue: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
             value={this.state.inputValue}
           />
-          <button onClick={() => this.addTask(this.state.inputValue)}>
+          <button
+            className="addTaskButton"
+            onClick={() => this.addTask(this.state.inputValue)}
+          >
             Přidej úkol
           </button>
           <div className="tasksList">{this.renderTask()}</div>

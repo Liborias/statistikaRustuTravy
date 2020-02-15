@@ -210,3 +210,6 @@ zapsání pomocí backticků (přízvuků) když potřebuji vypsat text s promě
       </div>
 
 toto nahradilo způsob, kdy se musely texty s proměnnými zřetězit  "task priority"+x.priority+" hotovo"+x.isDone nově {`task priority${x.priority} hotovo ${x.isDone}`
+******************************************************************************
+&& - zkrácené vyhodnocení - znamená to, pokud je první část true, pokračuje se dál, pokud ne, příkaz je ukončen
+ {!x.isDone && <button onClick={() => this.setDone(x.id)}>Done</button>}
