@@ -1,0 +1,30 @@
+h2 {
+  text-align: center;
+  color: brown;
+}
+
+.tasksFrame {
+  position: relative;
+  margin: auto;
+  border: 1px solid red;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tasksList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.task {
+  font-size: 15px;
+}
+
+.priority1 {
+  color: red;
+}
+
+.done {
+  color: green;
+}

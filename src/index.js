@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import ToDoList from "./ToDoList";
+import ToDoList2 from "./ToDoList2";
 import ForFun from "./ForFun";
 //import App from './App';
 import * as serviceWorker from "./serviceWorker";
@@ -10,6 +11,7 @@ ReactDOM.render(
   <React.Fragment>
     <ToDoList />
     <ForFun />
+    <ToDoList2 />
   </React.Fragment>,
   document.getElementById("root")
 );

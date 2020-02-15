@@ -19,7 +19,7 @@ number - číslo, zapisuje se jako číslo např. 5
 string - text, zapisuje sev uvozovkách "Libor"
 boolean - logická hodnota, zapisuje se true/false - boolean se dá pomocí vykřikníku negovat např. !true = false
 
-namísto podmínky If (){} else {} se někdy používá zkratka tzv. ternární operátor (ternární znamená, že má tři části)
+namísto podmínky If (){} else {}; se někdy používá zkratka tzv. ternární operátor (ternární znamená, že má tři části)
 
 (pokud) ? co chci udělat : jinak ;
 
@@ -87,7 +87,7 @@ pokud je hodnota boolean mohu ji vykřikníkem negovat
 **********************************************************************
 Tlačítko a volání funkce příkazem onClick
 
-pozor před volání funkce je nutno umístit () =>
+pozor před volání funkce je nutno umístit arrow funkci () =>
 jinak se díky charakteristice jazyka volání funkce zacyklí a prohlížeč načítání utne a zobrazí chybovou stránku
 
 <button onClick={() => this.dayToNight()}>Nechť je den nocí</button>
@@ -100,7 +100,8 @@ položky mají přiřazen index podle pořadí. Pozor první index je 0 (ne 1).
 zápis (v tomto případě máme pole pojmenováno kosovo) hodnoty pole se zapisují do hranatých [a,b] závorek a jsou odděleny čárkou
 const kosovo = [3, 5, 10, 5, 4]; 
 
-velikost pole zjitím tak že zadám název proměnné.length
+příkaz length
+velikost pole zjitím tak že zadám názevProměnné.length
 
 kosovo.length
 
@@ -108,7 +109,7 @@ např. když chci vypsat
 console.log (kosovo.length)
 
 pozn.
-zápis javascriptu v reactu se mezi tagy zapisuje pomocí složených závorek
+zápis javascriptu v reactu se mezi tagy zapisuje pomocí složených závorek (i do tagů)
 
 příklad vypsání indexu v poli:
 <p> {kosovo[3]} se nerovná {moravske[5]} </p>
@@ -189,3 +190,23 @@ typy vstupů
 
 input type="checkbox"
 
+**************************************************************************
+key - klíč (unikátní identifikátor) objektu, nebo čehokoliv se používá pro výpis na obrazovku pomocí html tagů.
+přiřadí každé vykreslené položce vlastní identifikátor, v případě příkladu níže to je index pole, tedy pořadí položky v poli.
+Pokud se key nepoužije, nebo se stejný klíč vyskytne víckrát, tak může být react zmatený
+
+<div className="task" key={index}>
+        <span>{index + 1} - </span>
+        {x}
+      </div>
+********************************************************************
+dvě prázdné hodnoty
+undefined - téměř pro vše, kde není null (texty, objekty a další)
+null - pro čísla
+***********************************************************************
+zapsání pomocí backticků (přízvuků) když potřebuji vypsat text s proměnnými 
+ <div className={`task priority${x.priority}`} key={x.id}>
+        {x.priority} {x.taskName}
+      </div>
+
+toto nahradilo způsob, kdy se musely texty s proměnnými zřetězit  "task priority"+x.priority+" hotovo"+x.isDone nově {`task priority${x.priority} hotovo ${x.isDone}`

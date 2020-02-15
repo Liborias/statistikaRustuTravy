@@ -1,22 +1,73 @@
 import React from "react";
 import "./style.css";
 
-class ToDoList extends React.Component {
+class ToDoList2 extends React.Component {
   state = {
-    tasks: ["koupit boty", "dát si oběd", "stihnout výstavu"],
+    tasks: [
+      {
+        taskName: "Vytvořit HTML index",
+        isDone: false,
+        priority: 1,
+        description: "Podrobnosti úkolu",
+        reponsible: null,
+        id: 1
+      },
+      {
+        taskName: "Grafický návrh",
+        isDone: false,
+        priority: 2,
+        description: "Podrobnosti úkolu",
+        reponsible: null,
+        id: 2
+      },
+      {
+        taskName: "Kontaktovat klienta",
+        isDone: true,
+        priority: 3,
+        description: "Podrobnosti úkolu",
+        reponsible: null,
+        id: 3
+      }
+    ],
     inputValue: ""
   };
   renderTask = () => {
     const { tasks } = this.state;
-    const vysledneDivy = tasks.map((x, index) => (
-      <div className="task" key={index}>
-        <span>{index + 1} - </span>
-        {x}
+    const vysledneDivy = tasks.map(x => (
+      <div
+        className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
+        key={x.id}
+      >
+        {x.priority} {x.taskName}
+        {!x.isDone && <button onClick={() => this.setDone(x.id)}>Done</button>}
+        <button onClick={() => this.remove(x.id)}>Delete</button>
       </div>
     ));
-    console.log(vysledneDivy);
     return vysledneDivy;
   };
+
+  setDone = taskId => {
+    const { tasks } = this.state;
+    const tasksUpdated = tasks.map(x => {
+      if (x.id === taskId) {
+        return { ...x, isDone: true };
+      } else {
+        return x;
+      }
+    });
+    this.setState({ tasks: tasksUpdated });
+    // mapovanim najit shodu s taskId, tomu aktualizuj isDone a přepsat state
+    console.log("úkol s id je hotový ", taskId);
+  };
+
+  remove = taskId => {
+    const { tasks } = this.state;
+    const tasksUpdated = tasks.filter(x => x.id !== taskId);
+    this.setState({ tasks: tasksUpdated });
+
+    console.log("smazáno", taskId);
+  };
+
   addTask = (ukol = "napij se vína!") => {
     const { tasks } = this.state;
     // const rozsirene = tasks.concat(["se učit"]);
@@ -30,7 +81,7 @@ class ToDoList extends React.Component {
     const { tasks } = this.state;
     return (
       <div className="wrapper">
-        <h2>To Do List</h2>
+        <h2>To Do List 2</h2>
         <div className="tasksFrame">
           <input
             type="text"
@@ -53,4 +104,4 @@ class ToDoList extends React.Component {
     );
   }
 }
-export default ToDoList;
+export default ToDoList2;
