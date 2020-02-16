@@ -145,31 +145,39 @@ class ToDoList2 extends React.Component {
             onChange={e => this.setState({ podrobnosti: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
             value={podrobnosti}
           />
-          <input
-            checked
-            type="radio"
-            id="priorita_1"
-            name="gender"
-            value="1"
-            onChange={e => this.setState({ priorita: 1 })}
-          />
-          <label htmlFor="priorita_1">priorita 1</label>
-          <input
-            type="radio"
-            id="priorita_2"
-            name="gender"
-            value="2"
-            onChange={e => this.setState({ priorita: 2 })}
-          />
-          <label htmlFor="priorita_2">priorita 2</label>
-          <input
-            type="radio"
-            id="priorita_3"
-            name="gender"
-            value="3"
-            onChange={e => this.setState({ priorita: 3 })}
-          />
-          <label htmlFor="priorita_3">priorita 3</label>
+          <div className="priorityField">
+            <div>
+              <input
+                checked
+                type="radio"
+                id="priorita_1"
+                name="gender"
+                value="1"
+                onChange={e => this.setState({ priorita: 1 })}
+              />
+              <label htmlFor="priorita_1">priorita 1</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="priorita_2"
+                name="gender"
+                value="2"
+                onChange={e => this.setState({ priorita: 2 })}
+              />
+              <label htmlFor="priorita_2">priorita 2</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="priorita_3"
+                name="gender"
+                value="3"
+                onChange={e => this.setState({ priorita: 3 })}
+              />
+              <label htmlFor="priorita_3">priorita 3</label>
+            </div>
+          </div>
           <button
             className="addTaskButton"
             onClick={() => this.addTask(inputValue, podrobnosti, priorita)}
