@@ -34,10 +34,14 @@ class ToDoList extends React.Component {
         <div className="tasksFrame">
           <input
             type="text"
+            className="textField"
             onChange={e => this.setState({ inputValue: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
             value={this.state.inputValue}
           />
-          <button onClick={() => this.addTask(this.state.inputValue)}>
+          <button
+            className="addTaskButton"
+            onClick={() => this.addTask(this.state.inputValue)}
+          >
             Přidej úkol
           </button>
           <div className="tasksList">{this.renderTask()}</div>
