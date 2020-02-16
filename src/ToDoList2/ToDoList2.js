@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import Modal from "../Modal";
 
 class ToDoList2 extends React.Component {
   state = {
@@ -29,7 +30,10 @@ class ToDoList2 extends React.Component {
         id: 3
       }
     ],
-    inputValue: ""
+    inputValue: "",
+    priorita: 1,
+    podrobnosti: "",
+    showModalData: undefined
   };
   renderTask = () => {
     const { tasks } = this.state;
@@ -43,6 +47,12 @@ class ToDoList2 extends React.Component {
             {x.priority} {x.taskName}
           </span>
           <span>
+            <button
+              className="delButton"
+              onClick={() => this.setState({ showModalData: x })}
+            >
+              Detail
+            </button>
             {!x.isDone && (
               <button className="donButton" onClick={() => this.setDone(x.id)}>
                 Done
@@ -80,42 +90,104 @@ class ToDoList2 extends React.Component {
     console.log("smazáno", taskId);
   };
 
-  addTask = (ukol = "napij se vína!") => {
+  addTask = (ukol = "", podrobnosti = "", priorita = 1) => {
     const { tasks } = this.state;
     // const rozsirene = tasks.concat(["se učit"]);
     //    this.setState({ tasks: rozsirene });
-    const newTask = [ukol];
-    const copyTasks = [...tasks, ...newTask]; // tři tečky jsou příkaz k vytvoření kopie z tasks
+    const newTask = {
+      taskName: ukol,
+      isDone: false,
+      priority: priorita,
+      description: podrobnosti,
+      reponsible: null,
+      //id: Math.round(Math.random()*10000) //generuje náhodá čísl (Jiřinčin způsob)
+      id: new Date()
+    };
+    const copyTasks = [...tasks, newTask]; // tři tečky jsou příkaz k vytvoření kopie z tasks
     //copyTasks.push("uuuu");
     this.setState({ tasks: copyTasks, inputValue: "" }); //tohle nejen přepíše pole s úkoly za nové, ale i promaže řádek inputu
   };
-  render() {
+
+  updateDescritpion = (newDesc, editedId) => {
     const { tasks } = this.state;
+    const tasksUpdated = tasks.map(x => {
+      if (x.id === editedId) {
+        return { ...x, description: newDesc };
+      }
+      return x;
+    });
+    this.setState({ tasks: tasksUpdated, showModalData: undefined });
+  };
+
+  render() {
+    const {
+      tasks,
+      showModalData,
+      inputValue,
+      podrobnosti,
+      priorita
+    } = this.state;
     return (
       <div className="wrapper">
         <h2>To Do List 2</h2>
         <div className="tasksFrame">
           <input
+            placeholder="Název úkolu"
             className="textField"
             type="text"
             onChange={e => this.setState({ inputValue: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
-            value={this.state.inputValue}
+            value={inputValue}
           />
+          <input
+            placeholder="Podrobnosti úkolu"
+            className="textField"
+            type="text"
+            onChange={e => this.setState({ podrobnosti: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
+            value={podrobnosti}
+          />
+          <input
+            checked
+            type="radio"
+            id="priorita_1"
+            name="gender"
+            value="1"
+            onChange={e => this.setState({ priorita: 1 })}
+          />
+          <label htmlFor="priorita_1">priorita 1</label>
+          <input
+            type="radio"
+            id="priorita_2"
+            name="gender"
+            value="2"
+            onChange={e => this.setState({ priorita: 2 })}
+          />
+          <label htmlFor="priorita_2">priorita 2</label>
+          <input
+            type="radio"
+            id="priorita_3"
+            name="gender"
+            value="3"
+            onChange={e => this.setState({ priorita: 3 })}
+          />
+          <label htmlFor="priorita_3">priorita 3</label>
           <button
             className="addTaskButton"
-            onClick={() => this.addTask(this.state.inputValue)}
+            onClick={() => this.addTask(inputValue, podrobnosti, priorita)}
           >
             Přidej úkol
           </button>
           <div className="tasksList">{this.renderTask()}</div>
         </div>
-        {/*<p>Kdo je lepší, žena, nebo muž?</p>
-        <input type="checkbox" name="sex" id="r1" />
-        <label for="r1"> muž </label>
-        <input type="checkbox" name="sex" id="r2" />
-        <label for="r2"> muž </label>
-        <input type="password" name="sex" id="r3" />
-        <label for="r3"> muž </label>*/}
+
+        {showModalData && (
+          <Modal
+            data={showModalData}
+            closeModal={() => this.setState({ showModalData: undefined })}
+            updateDescritpion={(newDesc, editedId) =>
+              this.updateDescritpion(newDesc, editedId)
+            }
+          />
+        )}
       </div>
     );
   }
