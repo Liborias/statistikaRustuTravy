@@ -3,7 +3,16 @@ import "./style.css";
 
 class ToDoList extends React.Component {
   state = {
-    tasks: ["koupit boty", "dát si oběd", "stihnout výstavu"],
+    tasks: [
+      "Dokončené úkoly budou mít přeškrtutý text nadpisu a bylo by hezké někde zobrazovat i popisek úkolu",
+      "Přidat skupinu radiobuttonů, aby se u nového úkolu dala nastavovat priorita",
+      "a nechceme přidávat i popisek?",
+      "Do ToDoList2 upravit fci aby přidávala nové úkoly v požadovaném tvaru tedy jako objekt. ",
+      "Kafíčko a přestávečku",
+      "Při výpisu zobrazovat vždy nejprve nedokončené úkoly a pak dokončené",
+      "Nebylo by hezké mít checkbox, kterým by se mohly zviditelnit / zneviditelnit dokončené úkoly?",
+      "Co takhle editace již existuijícího úkolu, to by se celkem hodilo, hmm.",
+    ],
     inputValue: ""
   };
   renderTask = () => {
