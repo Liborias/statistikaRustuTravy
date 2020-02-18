@@ -33,11 +33,16 @@ class ToDoList2 extends React.Component {
     inputValue: "",
     priorita: 1,
     podrobnosti: "",
-    showModalData: undefined
+    showModalData: undefined,
+    filtredTasks: [],
+    doneTasks: [],
+    checkBoxDone: undefined
   };
+
   renderTask = () => {
     const { tasks } = this.state;
-    const vysledneDivy = tasks.map(x => (
+    const filtredTasks = tasks.filter(x => x.isDone !== true);
+    const vysledneDivy = filtredTasks.map(x => (
       <div
         className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
         key={x.id}
@@ -151,7 +156,7 @@ class ToDoList2 extends React.Component {
                 checked
                 type="radio"
                 id="priorita_1"
-                name="gender"
+                name="priorita"
                 value="1"
                 onChange={e => this.setState({ priorita: 1 })}
               />
@@ -161,7 +166,7 @@ class ToDoList2 extends React.Component {
               <input
                 type="radio"
                 id="priorita_2"
-                name="gender"
+                name="priorita"
                 value="2"
                 onChange={e => this.setState({ priorita: 2 })}
               />
@@ -171,7 +176,7 @@ class ToDoList2 extends React.Component {
               <input
                 type="radio"
                 id="priorita_3"
-                name="gender"
+                name="priorita"
                 value="3"
                 onChange={e => this.setState({ priorita: 3 })}
               />
@@ -185,6 +190,15 @@ class ToDoList2 extends React.Component {
             Přidej úkol
           </button>
           <div className="tasksList">{this.renderTask()}</div>
+          <div>
+            <input
+              type="checkbox"
+              className="filed-in"
+              id="filled-in-box"
+              onChange={e => this.setState({ heckBoxDone: true })}
+            />
+            <label htmlFor="filled-in-box">Skrýt hotové</label>
+          </div>
         </div>
 
         {showModalData && (
