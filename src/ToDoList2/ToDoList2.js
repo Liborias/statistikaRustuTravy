@@ -36,13 +36,18 @@ class ToDoList2 extends React.Component {
     showModalData: undefined,
     filtredTasks: [],
     doneTasks: [],
-    checkBoxDone: undefined
+    checkBoxDone: false
   };
 
-  renderTask = () => {
+  renderFiltered = () => {
     const { tasks } = this.state;
     const filtredTasks = tasks.filter(x => x.isDone !== true);
-    const vysledneDivy = filtredTasks.map(x => (
+    return this.renderTask(filtredTasks);
+  };
+
+  renderTask = (arrayToRender = []) => {
+    /*šlo by vynechat konstantu a rovnou vypsat return a většinou se to tak dělá: return arrayToRender.map(x => (...*/
+    const vysledneDivy = arrayToRender.map(x => (
       <div
         className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
         key={x.id}
@@ -143,11 +148,11 @@ class ToDoList2 extends React.Component {
             onChange={e => this.setState({ inputValue: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
             value={inputValue}
           />
-          <input
+          <textarea
             placeholder="Podrobnosti úkolu"
             className="textField"
-            type="text"
-            onChange={e => this.setState({ podrobnosti: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
+            rows={5}
+            onChange={e => this.setState({ podrobnosti: e.target.value })}
             value={podrobnosti}
           />
           <div className="priorityField">
@@ -189,15 +194,29 @@ class ToDoList2 extends React.Component {
           >
             Přidej úkol
           </button>
-          <div className="tasksList">{this.renderTask()}</div>
+          <div className="tasksList">{this.renderFiltered()}</div>
           <div>
+            <input
+              type="checkbox"
+              checked={this.state.checkBoxDone}
+              onChange={e => this.setState({ checkBoxDone: e.target.checked })}
+            />
+            {/*<input type="checkbox" defaultChecked={this.state.chkbox} onChange={this.handleChangeChk} /> */}
+            {/*<label htmlFor="filled-in-box">Skrýt aktivní</label>
             <input
               type="checkbox"
               className="filed-in"
               id="filled-in-box"
-              onChange={e => this.setState({ heckBoxDone: true })}
+              onChange={e => this.setState({ checkBoxDone: true })}
             />
-            <label htmlFor="filled-in-box">Skrýt hotové</label>
+            <label htmlFor="filled-in-box">Ukaž vše</label>
+            <input
+              type="checkbox"
+              className="filed-in"
+              id="filled-in-box"
+              onChange={e => this.setState({ checkBoxDone: true })}
+            />
+    <label htmlFor="filled-in-box">Skrýt hotové</label>*/}
           </div>
         </div>
 

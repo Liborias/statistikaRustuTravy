@@ -191,7 +191,16 @@ default : {co se má stát, když to není ani jedna z vyjmenovaných hodnot;} /
 ***************************************************************************
 typy vstupů
 
-input type="checkbox"
+checkbox
+v zápisu je důležité to co je dole, dají se přidávat další atributy jako className atd.
+checked je pokyn, který kontroluje ve stejtu mnou definovaný objekt jakou má hodnotu, jako počáteční mám false, ale po zaškrtnutí se změní na true
+onChange mi tu hodnotu změní
+
+<input
+              type="checkbox"
+              checked={this.state.checkBoxDone}
+              onChange={e => this.setState({ checkBoxDone: e.target.checked })}
+            />
 
 **************************************************************************
 key - klíč (unikátní identifikátor) objektu, nebo čehokoliv se používá pro výpis na obrazovku pomocí html tagů.
