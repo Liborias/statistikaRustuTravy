@@ -27,6 +27,9 @@ funkce render() {}
 zajišťuje vykreslení komponenty na obrazovku a pokud v komponentě nastanou změny, tak se provádí opakovaně
 
 return ( <div> </div>) - vrací jen jeden prvek, proto nejčastěji div. Kulaté závorky jsou tam proto, že je prvek rozdělen na více řádků, jinak by tam být nemusely, kdyby byl zápis jen jeden dluhý řádek bez odřádkování, je to tedy jen kvůli přehlednosti zápisu.
+Ale od určité verze reactu zde máme tag
+<React.Fragment></React.Fragment>
+který vše mění a můžeme si mezi něj vložit prvků kolik se nám zachce, ať se třeba Jiřka zlobí.
 ************************************************************************
 Struktury:
 
