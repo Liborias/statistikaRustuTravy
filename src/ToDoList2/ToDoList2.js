@@ -36,13 +36,25 @@ class ToDoList2 extends React.Component {
     showModalData: undefined,
     filtredTasks: [],
     doneTasks: [],
-    checkBoxDone: false
+    checkBoxDone: false,
+    checkBoxUndone: false
   };
 
   renderFiltered = () => {
-    const { tasks } = this.state;
-    const filtredTasks = tasks.filter(x => x.isDone !== true);
-    return this.renderTask(filtredTasks);
+    const { tasks, checkBoxDone, checkBoxUndone } = this.state;
+    let showResult = [...tasks];
+    if (checkBoxDone === true) {
+      showResult = showResult.filter(x => x.isDone !== true);
+    }
+    if (checkBoxUndone === true) {
+      showResult = showResult.filter(x => x.isDone === true);
+    }
+    if (showResult.length === 0) {
+      return (
+        <p>Žádná položka neodpovídá filtru</p>
+      ); /*Jakmile je retur, je funkce ukončena, další return už je ignorován */
+    }
+    return this.renderTask(showResult);
   };
 
   renderTask = (arrayToRender = []) => {
@@ -194,30 +206,23 @@ class ToDoList2 extends React.Component {
           >
             Přidej úkol
           </button>
-          <div className="tasksList">{this.renderFiltered()}</div>
           <div>
             <input
               type="checkbox"
               checked={this.state.checkBoxDone}
               onChange={e => this.setState({ checkBoxDone: e.target.checked })}
             />
-            {/*<input type="checkbox" defaultChecked={this.state.chkbox} onChange={this.handleChangeChk} /> */}
-            {/*<label htmlFor="filled-in-box">Skrýt aktivní</label>
+            <label htmlFor="filterDone">Skryj hotové</label>
             <input
               type="checkbox"
-              className="filed-in"
-              id="filled-in-box"
-              onChange={e => this.setState({ checkBoxDone: true })}
+              checked={this.state.checkBoxUndone}
+              onChange={e =>
+                this.setState({ checkBoxUndone: e.target.checked })
+              }
             />
-            <label htmlFor="filled-in-box">Ukaž vše</label>
-            <input
-              type="checkbox"
-              className="filed-in"
-              id="filled-in-box"
-              onChange={e => this.setState({ checkBoxDone: true })}
-            />
-    <label htmlFor="filled-in-box">Skrýt hotové</label>*/}
+            <label htmlFor="filterUnone">Skryj aktivní</label>
           </div>
+          <div className="tasksList">{this.renderFiltered()}</div>
         </div>
 
         {showModalData && (

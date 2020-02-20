@@ -86,6 +86,12 @@ const nazevKonstanty = hodnota;
 
 hodnota může být číslo, string, boolean
 pokud je hodnota boolean mohu ji vykřikníkem negovat
+------------------------
+definice proměnné
+
+let nazevPromenne =  hodnota;
+
+může se měnit v rpůběhu funkce
 
 **********************************************************************
 Tlačítko a volání funkce příkazem onClick
