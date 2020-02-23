@@ -9,8 +9,8 @@ class ToDoList extends React.Component {
       "DONE - a nechceme přidávat i popisek?",
       "DONE - Do ToDoList2 upravit fci aby přidávala nové úkoly v požadovaném tvaru tedy jako objekt. ",
       "DONE - Kafíčko a přestávečku",
-      "Při výpisu zobrazovat vždy nejprve nedokončené úkoly a pak dokončené",
-      "Nebylo by hezké mít checkbox, kterým by se mohly zviditelnit / zneviditelnit dokončené úkoly?",
+      "DONE - Při výpisu zobrazovat vždy nejprve nedokončené úkoly a pak dokončené",
+      "DONE - Nebylo by hezké mít checkbox, kterým by se mohly zviditelnit / zneviditelnit dokončené úkoly?",
       "DONE - Co takhle editace již existuijícího úkolu, to by se celkem hodilo, hmm."
     ],
     inputValue: ""

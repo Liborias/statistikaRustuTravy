@@ -42,7 +42,11 @@ class ToDoList2 extends React.Component {
 
   renderFiltered = () => {
     const { tasks, checkBoxDone, checkBoxUndone } = this.state;
-    let showResult = [...tasks];
+    let sortedTasks = [
+      ...tasks.filter(x => x.isDone !== true),
+      ...tasks.filter(x => x.isDone === true)
+    ];
+    let showResult = [...sortedTasks];
     if (checkBoxDone === true) {
       showResult = showResult.filter(x => x.isDone !== true);
     }
