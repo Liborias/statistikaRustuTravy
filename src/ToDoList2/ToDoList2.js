@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import Modal from "../Modal";
+import RenderTask from "../Components/RenderTask";
 
 class ToDoList2 extends React.Component {
   state = {
@@ -14,7 +15,8 @@ class ToDoList2 extends React.Component {
         id: 1
       },
       {
-        taskName: "Z Components - RenderTask uděláme funkční komponentu (primitivní)",
+        taskName:
+          "Z Components - RenderTask uděláme funkční komponentu (primitivní)",
         isDone: false,
         priority: 1,
         description: "Podrobnosti úkolu",
@@ -30,7 +32,8 @@ class ToDoList2 extends React.Component {
         id: 2
       },
       {
-        taskName: "Budeme zapínat / vypínat zpobrazení jednotlivých částí (Todo/ Couner/ ForFun ..)",
+        taskName:
+          "Budeme zapínat / vypínat zpobrazení jednotlivých částí (Todo/ Couner/ ForFun ..)",
         isDone: false,
         priority: 2,
         description: "Podrobnosti úkolu",
@@ -43,9 +46,8 @@ class ToDoList2 extends React.Component {
         priority: 2,
         description: "Podrobnosti úkolu",
         reponsible: null,
-        id: 4
-      },
-
+        id: 5
+      }
     ],
     inputValue: "",
     priorita: 1,
@@ -63,19 +65,28 @@ class ToDoList2 extends React.Component {
       ...tasks.filter(x => x.isDone !== true),
       ...tasks.filter(x => x.isDone === true)
     ];
-    let showResult = [...sortedTasks];
+
     if (checkBoxDone === true) {
-      showResult = showResult.filter(x => x.isDone !== true);
+      sortedTasks = sortedTasks.filter(x => x.isDone !== true);
     }
     if (checkBoxUndone === true) {
-      showResult = showResult.filter(x => x.isDone === true);
+      sortedTasks = sortedTasks.filter(x => x.isDone === true);
     }
-    if (showResult.length === 0) {
+    if (sortedTasks.length === 0) {
       return (
         <p>Žádná položka neodpovídá filtru</p>
       ); /*Jakmile je retur, je funkce ukončena, další return už je ignorován */
     }
-    return this.renderTask(showResult);
+    //return this.renderTask(sortedTasks);
+    return (
+      <RenderTask
+        tasks={sortedTasks}
+        oznacHotovo={m => this.setDone(m)}
+        smaz={m => this.remove(m)}
+        ukazPodrobnosti={m => this.setState({ showModalData: m })}
+      />
+    ); /*m je v tomto případě hodnota, kterou funkce řeší v rámci komponenty,
+    m ji tady zastupuje a říká funkci ve stejtu, že se má pracovat se stejnou hodnotou*/
   };
 
   renderTask = (arrayToRender = []) => {
@@ -188,6 +199,7 @@ class ToDoList2 extends React.Component {
             onChange={e => this.setState({ podrobnosti: e.target.value })}
             value={podrobnosti}
           />
+
           <div className="priorityField">
             <div>
               <input

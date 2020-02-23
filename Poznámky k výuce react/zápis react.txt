@@ -231,3 +231,7 @@ toto nahradilo způsob, kdy se musely texty s proměnnými zřetězit  "task pri
 ******************************************************************************
 && - zkrácené vyhodnocení - znamená to, pokud je první část true, pokračuje se dál, pokud ne, příkaz je ukončen
  {!x.isDone && <button onClick={() => this.setDone(x.id)}>Done</button>}
+
+***********************************************************************************
+funkcionální komponenta (primitivní funkční komponenta)
+
