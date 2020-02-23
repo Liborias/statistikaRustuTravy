@@ -75,7 +75,7 @@ class ToDoList2 extends React.Component {
     if (sortedTasks.length === 0) {
       return (
         <p>Žádná položka neodpovídá filtru</p>
-      ); /*Jakmile je retur, je funkce ukončena, další return už je ignorován */
+      ); /*Jakmile je retur, je funkce ukončena, další return už je ignorován! */
     }
     //return this.renderTask(sortedTasks);
     return (
