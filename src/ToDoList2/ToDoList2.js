@@ -6,6 +6,14 @@ class ToDoList2 extends React.Component {
   state = {
     tasks: [
       {
+        taskName: "Zařídit řazení od nehotových, po hotové",
+        isDone: true,
+        priority: 1,
+        description: "Nejdříve se mají řadit hotové úkoly, až za nimi hotové",
+        reponsible: null,
+        id: 1
+      },
+      {
         taskName: "Vytvořit HTML index",
         isDone: false,
         priority: 1,
@@ -27,7 +35,7 @@ class ToDoList2 extends React.Component {
         priority: 3,
         description: "Podrobnosti úkolu",
         reponsible: null,
-        id: 3
+        id: 4
       }
     ],
     inputValue: "",
