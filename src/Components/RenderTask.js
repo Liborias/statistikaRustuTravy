@@ -1,8 +1,8 @@
 import React from "react";
 
 function RenderTask(props) {
-  const { tasks } = props;
-  const vysledneDivy = tasks.map(x => (
+  const { ukoly } = props;
+  const vysledneDivy = ukoly.map(x => (
     <div
       className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
       key={x.id}

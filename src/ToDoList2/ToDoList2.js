@@ -11,24 +11,24 @@ class ToDoList2 extends React.Component {
         isDone: true,
         priority: 1,
         description: "Nejdříve se mají řadit hotové úkoly, až za nimi hotové",
-        reponsible: null,
+        responsible: "user1",
         id: 1
       },
       {
         taskName:
           "Z Components - RenderTask uděláme funkční komponentu (primitivní)",
-        isDone: false,
+        isDone: true,
         priority: 1,
         description: "Podrobnosti úkolu",
-        reponsible: null,
+        responsible: "user1",
         id: 3
       },
       {
         taskName: "Select / Dropdown",
-        isDone: false,
+        isDone: true,
         priority: 2,
         description: "Podrobnosti úkolu",
-        reponsible: null,
+        responsible: "user3",
         id: 2
       },
       {
@@ -37,7 +37,7 @@ class ToDoList2 extends React.Component {
         isDone: false,
         priority: 2,
         description: "Podrobnosti úkolu",
-        reponsible: null,
+        responsible: "user2",
         id: 4
       },
       {
@@ -45,7 +45,7 @@ class ToDoList2 extends React.Component {
         isDone: false,
         priority: 2,
         description: "Podrobnosti úkolu",
-        reponsible: null,
+        responsible: "user2",
         id: 5
       }
     ],
@@ -56,7 +56,8 @@ class ToDoList2 extends React.Component {
     filtredTasks: [],
     doneTasks: [],
     checkBoxDone: false,
-    checkBoxUndone: false
+    checkBoxUndone: false,
+    responsibleUser: "user3"
   };
 
   renderFiltered = () => {
@@ -80,7 +81,7 @@ class ToDoList2 extends React.Component {
     //return this.renderTask(sortedTasks);
     return (
       <RenderTask
-        tasks={sortedTasks}
+        ukoly={sortedTasks}
         oznacHotovo={m => this.setDone(m)}
         smaz={m => this.remove(m)}
         ukazPodrobnosti={m => this.setState({ showModalData: m })}
@@ -145,7 +146,7 @@ class ToDoList2 extends React.Component {
   };
 
   addTask = (ukol = "", podrobnosti = "", priorita = 1) => {
-    const { tasks } = this.state;
+    const { tasks, responsibleUser } = this.state;
     // const rozsirene = tasks.concat(["se učit"]);
     //    this.setState({ tasks: rozsirene });
     const newTask = {
@@ -153,20 +154,26 @@ class ToDoList2 extends React.Component {
       isDone: false,
       priority: priorita,
       description: podrobnosti,
-      reponsible: null,
+      responsible: responsibleUser,
       //id: Math.round(Math.random()*10000) //generuje náhodá čísl (Jiřinčin způsob)
       id: new Date()
     };
     const copyTasks = [...tasks, newTask]; // tři tečky jsou příkaz k vytvoření kopie z tasks
     //copyTasks.push("uuuu");
-    this.setState({ tasks: copyTasks, inputValue: "" }); //tohle nejen přepíše pole s úkoly za nové, ale i promaže řádek inputu
+    this.setState({
+      tasks: copyTasks,
+      inputValue: "",
+      podrobnosti: "",
+      responsibleUser: "user3",
+      priorita: 1
+    }); //tohle nejen přepíše pole s úkoly za nové, ale i promaže řádek inputu
   };
 
-  updateDescritpion = (newDesc, editedId) => {
+  updateDescritpion = (newDesc, newUser, editedId) => {
     const { tasks } = this.state;
     const tasksUpdated = tasks.map(x => {
       if (x.id === editedId) {
-        return { ...x, description: newDesc };
+        return { ...x, responsible: newUser, description: newDesc };
       }
       return x;
     });
@@ -192,6 +199,14 @@ class ToDoList2 extends React.Component {
             onChange={e => this.setState({ inputValue: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
             value={inputValue}
           />
+          <select
+            value={this.state.responsibleUser}
+            onChange={e => this.setState({ responsibleUser: e.target.value })}
+          >
+            <option value="user1">Libor Žák</option>
+            <option value="user2">Žíža</option>
+            <option value="user3">Onoseto Samoseto</option>
+          </select>
           <textarea
             placeholder="Podrobnosti úkolu"
             className="textField"
@@ -233,19 +248,21 @@ class ToDoList2 extends React.Component {
               <label htmlFor="priorita_3">priorita 3</label>
             </div>
           </div>
+
           <button
             className="addTaskButton"
             onClick={() => this.addTask(inputValue, podrobnosti, priorita)}
           >
             Přidej úkol
           </button>
+
           <div>
             <input
               type="checkbox"
               checked={this.state.checkBoxDone}
               onChange={e => this.setState({ checkBoxDone: e.target.checked })}
             />
-            <label htmlFor="filterDone">Skryj hotové</label>
+            <label htmlFor="filterDone">Skryj hotové </label>
             <input
               type="checkbox"
               checked={this.state.checkBoxUndone}
@@ -253,7 +270,14 @@ class ToDoList2 extends React.Component {
                 this.setState({ checkBoxUndone: e.target.checked })
               }
             />
-            <label htmlFor="filterUnone">Skryj aktivní</label>
+            <label htmlFor="filterUnone">Skryj aktivní </label>
+            <select>
+              <option value="user1">Libor Žák</option>
+              <option value="user2">Žíža</option>
+              <option value="user3" selected>
+                Onoseto Samoseto
+              </option>
+            </select>
           </div>
           <div className="tasksList">{this.renderFiltered()}</div>
         </div>
@@ -262,9 +286,10 @@ class ToDoList2 extends React.Component {
           <Modal
             data={showModalData}
             closeModal={() => this.setState({ showModalData: undefined })}
-            updateDescritpion={(newDesc, editedId) =>
-              this.updateDescritpion(newDesc, editedId)
-            }
+            updateDescritpion={(newDesc, newUser, editedId) => {
+              this.updateDescritpion(newDesc, newUser, editedId);
+              console.log(newUser, newDesc, editedId);
+            }}
           />
         )}
       </div>
