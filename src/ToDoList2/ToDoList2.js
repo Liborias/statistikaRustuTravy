@@ -19,7 +19,7 @@ class ToDoList2 extends React.Component {
         priority: 1,
         description: "Podrobnosti úkolu",
         reponsible: null,
-        id: 1
+        id: 3
       },
       {
         taskName: "Grafický návrh",
