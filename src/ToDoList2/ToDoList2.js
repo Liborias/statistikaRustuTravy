@@ -14,7 +14,7 @@ class ToDoList2 extends React.Component {
         id: 1
       },
       {
-        taskName: "Vytvořit HTML index",
+        taskName: "Z Components - RenderTask uděláme funkční komponentu (primitivní)",
         isDone: false,
         priority: 1,
         description: "Podrobnosti úkolu",
@@ -22,7 +22,7 @@ class ToDoList2 extends React.Component {
         id: 3
       },
       {
-        taskName: "Grafický návrh",
+        taskName: "Select / Dropdown",
         isDone: false,
         priority: 2,
         description: "Podrobnosti úkolu",
@@ -30,13 +30,22 @@ class ToDoList2 extends React.Component {
         id: 2
       },
       {
-        taskName: "Kontaktovat klienta",
-        isDone: true,
-        priority: 3,
+        taskName: "Budeme zapínat / vypínat zpobrazení jednotlivých částí (Todo/ Couner/ ForFun ..)",
+        isDone: false,
+        priority: 2,
         description: "Podrobnosti úkolu",
         reponsible: null,
         id: 4
-      }
+      },
+      {
+        taskName: "Material design? Bootstrap + projekty?",
+        isDone: false,
+        priority: 2,
+        description: "Podrobnosti úkolu",
+        reponsible: null,
+        id: 4
+      },
+
     ],
     inputValue: "",
     priorita: 1,
