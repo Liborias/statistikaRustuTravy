@@ -2,11 +2,14 @@ import React from "react";
 
 class Modal extends React.Component {
   state = {
-    inputValue: this.props.data.description
+    inputValue: this.props.data.description,
+    inputUser: this.props.data.responsible,
+    done: this.props.data.isDone
   };
 
   render() {
     const { data, closeModal, updateDescritpion } = this.props;
+    console.log("data", data);
     return (
       <div className="modal-wrapper">
         <div className="modal-content">
@@ -16,6 +19,16 @@ class Modal extends React.Component {
             <button onClick={() => closeModal()}>X</button>
           </div>
           <div className="taskDetail">
+            <select
+              className="textField"
+              value={this.state.inputUser}
+              disabled={false} //deaktivuje prvek v tomto případě select
+              onChange={e => this.setState({ inputUser: e.target.value })}
+            >
+              <option value="user1">Libor Žák</option>
+              <option value="user2">Žíža</option>
+              <option value="user3">Onoseto Samoseto</option>
+            </select>
             <input
               className="textDetail"
               type="text"
@@ -24,9 +37,22 @@ class Modal extends React.Component {
             />
           </div>
           <button
-            onClick={() => updateDescritpion(this.state.inputValue, data.id)}
+            onClick={() =>
+              updateDescritpion(
+                this.state.inputValue,
+                this.state.inputUser,
+                this.state.done,
+                data.id
+              )
+            }
           >
             Uložit
+          </button>
+          <button
+            className="donButton"
+            onClick={() => this.setState({ done: true })}
+          >
+            Hotovo
           </button>
         </div>
       </div>

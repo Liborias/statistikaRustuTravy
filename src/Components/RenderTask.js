@@ -1,37 +1,39 @@
 import React from "react";
 
-class renderTask extends React.Component {
-  
-    const { tasks } = this.state;
-    const vysledneDivy = tasks.map(x => (
-      <div
-        className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
-        key={x.id}
-      >
-        <div className="taskRow">
-          <span>
-            {x.priority} {x.taskName}
-          </span>
-          <span>
+function RenderTask(props) {
+  const { ukoly } = props;
+  const vysledneDivy = ukoly.map(x => (
+    <div
+      className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
+      key={x.id}
+    >
+      <div className="taskRow">
+        <span>
+          {x.priority} {x.taskName}
+        </span>
+        <span>
+          <button
+            className="delButton"
+            onClick={() => props.ukazPodrobnosti(x)}
+          >
+            Detail
+          </button>
+          {!x.isDone && (
             <button
-              className="delButton"
-              onClick={() => this.setState({ showModalData: x })}
+              className="donButton"
+              onClick={() => props.oznacHotovo(x.id)}
             >
-              Detail
+              Done
             </button>
-            {!x.isDone && (
-              <button className="donButton" onClick={() => this.setDone(x.id)}>
-                Done
-              </button>
-            )}
-            <button className="delButton" onClick={() => this.remove(x.id)}>
-              Delete
-            </button>
-          </span>
-        </div>
+          )}
+          <button className="delButton" onClick={() => props.smaz(x.id)}>
+            Delete
+          </button>
+        </span>
       </div>
-    ));
-    return vysledneDivy;
-  };
+    </div>
+  ));
+
+  return <div>{vysledneDivy}</div>;
 }
-export default renderTask;
+export default RenderTask;
