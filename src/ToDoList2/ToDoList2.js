@@ -169,16 +169,11 @@ class ToDoList2 extends React.Component {
     }); //tohle nejen přepíše pole s úkoly za nové, ale i promaže řádek inputu
   };
 
-  updateDescritpion = (newDesc, newUser, editedId, editedIsDone) => {
+  updateDescritpion = (newDesc, newUser, editedId) => {
     const { tasks } = this.state;
     const tasksUpdated = tasks.map(x => {
       if (x.id === editedId) {
-        return {
-          ...x,
-          responsible: newUser,
-          description: newDesc,
-          isDone: editedIsDone
-        };
+        return { ...x, responsible: newUser, description: newDesc };
       }
       return x;
     });
@@ -204,9 +199,7 @@ class ToDoList2 extends React.Component {
             onChange={e => this.setState({ inputValue: e.target.value })} //e se používá, protože tím písmenem začíná event (je to ustálené), target je označní vstupu (input) a value je jeden z atributů inputu
             value={inputValue}
           />
-          <h3>Odpovědná osoba:</h3>
           <select
-            className="textField"
             value={this.state.responsibleUser}
             onChange={e => this.setState({ responsibleUser: e.target.value })}
           >
@@ -278,7 +271,7 @@ class ToDoList2 extends React.Component {
               }
             />
             <label htmlFor="filterUnone">Skryj aktivní </label>
-            <select className="textField">
+            <select>
               <option value="user1">Libor Žák</option>
               <option value="user2">Žíža</option>
               <option value="user3" selected>
@@ -293,9 +286,9 @@ class ToDoList2 extends React.Component {
           <Modal
             data={showModalData}
             closeModal={() => this.setState({ showModalData: undefined })}
-            updateDescritpion={(newDesc, newUser, editedId, editedIsDone) => {
-              this.updateDescritpion(newDesc, newUser, editedId, editedIsDone);
-              console.log(newUser, newDesc, editedId, editedIsDone);
+            updateDescritpion={(newDesc, newUser, editedId) => {
+              this.updateDescritpion(newDesc, newUser, editedId);
+              console.log(newUser, newDesc, editedId);
             }}
           />
         )}

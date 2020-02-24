@@ -3,8 +3,7 @@ import React from "react";
 class Modal extends React.Component {
   state = {
     inputValue: this.props.data.description,
-    inputUser: this.props.data.responsible,
-    done: this.props.data.isDone
+    inputUser: this.props.data.responsible
   };
 
   render() {
@@ -20,7 +19,6 @@ class Modal extends React.Component {
           </div>
           <div className="taskDetail">
             <select
-              className="textField"
               value={this.state.inputUser}
               disabled={false} //deaktivuje prvek v tomto případě select
               onChange={e => this.setState({ inputUser: e.target.value })}
@@ -41,7 +39,6 @@ class Modal extends React.Component {
               updateDescritpion(
                 this.state.inputValue,
                 this.state.inputUser,
-                this.state.done,
                 data.id
               )
             }
