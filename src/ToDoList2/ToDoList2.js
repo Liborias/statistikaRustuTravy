@@ -8,7 +8,7 @@ class ToDoList2 extends React.Component {
     tasks: [
       {
         taskName: "Zařídit řazení od nehotových, po hotové",
-        isDone: false,
+        isDone: true,
         priority: 1,
         description: "Nejdříve se mají řadit hotové úkoly, až za nimi hotové",
         responsible: "user1",
