@@ -6,6 +6,13 @@ h2 {
   color: white;
   margin: 10px auto;
 }
+
+h3 {
+  text-align: center;
+  color: white;
+  margin: 3px auto;
+}
+
 button {
   border-radius: 5px;
   margin-left: 5px;

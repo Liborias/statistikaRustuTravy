@@ -45,6 +45,12 @@ class Modal extends React.Component {
           >
             Uložit
           </button>
+          <button
+            className="donButton"
+            onClick={() => this.setState({ done: true })}
+          >
+            Hotovo
+          </button>
         </div>
       </div>
     );
