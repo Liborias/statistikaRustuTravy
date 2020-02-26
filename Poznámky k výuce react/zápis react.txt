@@ -234,4 +234,26 @@ toto nahradilo způsob, kdy se musely texty s proměnnými zřetězit  "task pri
 
 ***********************************************************************************
 funkcionální komponenta (primitivní funkční komponenta)
+ve funkcionální komponentě se komponenta zapisuje jako funcion a místo (this.props) se na rozdíl od klasických komponent používá pouze (props)
+const 
 
+zápis
+function RenderTask(props) {
+  const { tasks } = props; 
+const vysledneDivy = ukoly.map(x => (......obsah) // toto říká, že zmíněná konstanta, ze které se berou data je definována tam, kde se bude tato funkční komponenta volat, stejně jako všechny ostatní definované dále 
+
+pokud je pak uvnitř použita funkce, která je definovaná jinde, musí se také zadat props:
+<button
+            className="delButton"
+            onClick={() => props.ukazPodrobnosti(x)}
+          >
+
+return (
+      <RenderTask
+        tasks={sortedTasks}
+*************************************************************************
+        oznacHotovo={m => this.setDone(m)}
+        smaz={m => this.remove(m)}
+        ukazPodrobnosti={m => this.setState({ showModalData: m })}
+      />
+    );
