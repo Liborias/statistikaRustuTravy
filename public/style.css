@@ -52,7 +52,7 @@ button {
   color: red;
 }
 
-.done {
+.done .text {
   color: green;
   text-decoration: line-through;
 }
@@ -86,7 +86,12 @@ button {
   font-size: 10px;
   background-color: rgb(119, 70, 70);
 }
-
+.saveButton {
+  color: white;
+  font-weight: 700;
+  font-size: 10px;
+  background-color: rgb(80, 71, 163);
+}
 /* modal */
 .modal-wrapper {
   position: absolute;

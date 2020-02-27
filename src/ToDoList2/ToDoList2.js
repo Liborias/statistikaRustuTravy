@@ -82,57 +82,25 @@ class ToDoList2 extends React.Component {
     return (
       <RenderTask
         ukoly={sortedTasks}
-        oznacHotovo={m => this.setDone(m)}
-        smaz={m => this.remove(m)}
         ukazPodrobnosti={m => this.setState({ showModalData: m })}
       />
     ); /*m je v tomto případě hodnota, kterou funkce řeší v rámci komponenty,
     m ji tady zastupuje a říká funkci ve stejtu, že se má pracovat se stejnou hodnotou*/
   };
 
-  renderTask = (arrayToRender = []) => {
-    /*šlo by vynechat konstantu a rovnou vypsat return a většinou se to tak dělá: return arrayToRender.map(x => (...*/
-    const vysledneDivy = arrayToRender.map(x => (
-      <div
-        className={`task priority${x.priority} ${x.isDone ? "done" : ""}`}
-        key={x.id}
-      >
-        <div className="taskRow">
-          <span>
-            {x.priority} {x.taskName}
-          </span>
-          <span>
-            <button
-              className="delButton"
-              onClick={() => this.setState({ showModalData: x })}
-            >
-              Detail
-            </button>
-            {!x.isDone && (
-              <button className="donButton" onClick={() => this.setDone(x.id)}>
-                Done
-              </button>
-            )}
-            <button className="delButton" onClick={() => this.remove(x.id)}>
-              Delete
-            </button>
-          </span>
-        </div>
-      </div>
-    ));
-    return vysledneDivy;
-  };
-
-  setDone = taskId => {
+  setDone = (taskId, doneUndone) => {
     const { tasks } = this.state;
     const tasksUpdated = tasks.map(x => {
       if (x.id === taskId) {
-        return { ...x, isDone: true };
+        return { ...x, isDone: doneUndone };
       } else {
         return x;
       }
     });
-    this.setState({ tasks: tasksUpdated });
+
+    const updatedForModal = tasksUpdated.find(item => item.id === taskId);
+
+    this.setState({ tasks: tasksUpdated, showModalData: updatedForModal });
     // mapovanim najit shodu s taskId, tomu aktualizuj isDone a přepsat state
     console.log("úkol s id je hotový ", taskId);
   };
@@ -285,7 +253,11 @@ class ToDoList2 extends React.Component {
         {showModalData && (
           <Modal
             data={showModalData}
+            oznacHotovo={(usedId, doneUndone) =>
+              this.setDone(usedId, doneUndone)
+            }
             closeModal={() => this.setState({ showModalData: undefined })}
+            smaz={usedId => this.remove(usedId)}
             updateDescritpion={(newDesc, newUser, editedId) => {
               this.updateDescritpion(newDesc, newUser, editedId);
               console.log(newUser, newDesc, editedId);

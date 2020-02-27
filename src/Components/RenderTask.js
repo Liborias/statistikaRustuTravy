@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@material-ui/core/Button";
 
 function RenderTask(props) {
   const { ukoly } = props;
@@ -8,27 +9,25 @@ function RenderTask(props) {
       key={x.id}
     >
       <div className="taskRow">
-        <span>
+        <span className="text">
           {x.priority} {x.taskName}
         </span>
         <span>
-          <button
+          <Button
+            variant="outlined"
+            color="primary"
+            className="delButton"
+            style={{ textDecoration: "none" }}
+            onClick={() => props.ukazPodrobnosti(x)}
+          >
+            Detail
+          </Button>
+          {/* <button
             className="delButton"
             onClick={() => props.ukazPodrobnosti(x)}
           >
             Detail
-          </button>
-          {!x.isDone && (
-            <button
-              className="donButton"
-              onClick={() => props.oznacHotovo(x.id)}
-            >
-              Done
-            </button>
-          )}
-          <button className="delButton" onClick={() => props.smaz(x.id)}>
-            Delete
-          </button>
+          </button> */}
         </span>
       </div>
     </div>

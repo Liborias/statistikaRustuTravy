@@ -35,6 +35,7 @@ class Modal extends React.Component {
             />
           </div>
           <button
+            className="saveButton"
             onClick={() =>
               updateDescritpion(
                 this.state.inputValue,
@@ -45,11 +46,21 @@ class Modal extends React.Component {
           >
             Uložit
           </button>
+
           <button
             className="donButton"
-            onClick={() => this.setState({ done: true })}
+            onClick={() => this.props.oznacHotovo(data.id, !data.isDone)}
           >
-            Hotovo
+            {data.isDone ? "Undone" : "Done"}
+          </button>
+          <button
+            className="delButton"
+            onClick={() => {
+              this.props.smaz(data.id);
+              closeModal();
+            }}
+          >
+            Delete
           </button>
         </div>
       </div>
