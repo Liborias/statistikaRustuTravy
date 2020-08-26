@@ -144,14 +144,17 @@ tyto funkce se vztahují pouze na pole:
 funkce forEach
 když chci postupně vypsat všechny položky v poli, nebo položky definované nějakou podmínkou, pužívá se příkaz forEach
 this.state.moravske.forEach(item => { console.log(item); });
-(používá se ve chvíli, kdy nechci vypsat jednotlivé položky, ale chci s nimi jen nějak pracovat
+(používá se ve chvíli, kdy nechci vypsat jednotlivé položky, ale chci s nimi jen nějak pracovat, ale už nechci aby se jejich hodnota změnila v poli)
 
 funkce map
-když chci postupně vypsat všechny položky v poli, používá se příkaz map, který vypíše každou jednu položku a to mohu v rámci funkce nadále pracovat, třeba k ní něco přičíst, přidat apod.
+když chci postupně projít všechny položky v poli, používá se příkaz map, který vypíše každou jednu položku a to mohu v rámci funkce nadále pracovat, třeba k ní něco přičíst, přidat apod.Používá se ve chvíli kdy chci položky v poli pozměnit)
 this.state.moravske.map(item => { console.log(item); });
+
+(fce map má navratovou hodnotu, vrací zpět pole o stejné velikosti jako pole, které bylo mapováno ZATÍMCO forEach nemá návratovou hodnotu a používá se tedy na průchod pole (stejně jako map) ale pro ty případy kdy chci s těmy prvky něco provést ale už jejich změněnou hodnotu nepotřebuji zíkat zpět v poli)
 
 funkce filter
 na úplně stejném principu jako map funguje funkce filter, jen nevrátí všechny položky jako map, ale jen ty, které odpovídají zadanému parametru
+arrrayName.filter(name => name.length > 5)
 
 funkce find
 na úplně stejném principu jako map a filter funguje funkce find, ale na rozdíl od nich vrací první objekt, který odpovídá zadanému parametru
